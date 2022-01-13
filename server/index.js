@@ -8,7 +8,18 @@ type Book {
   
 type Query {
     books: [Book]
-  }`;
+  }
+
+type MainCard {
+  title:String
+  image:String
+  # age:Float
+  # number:Int
+  # boolean: Boolean
+}
+
+
+`;
 
 
   const books = [
@@ -28,3 +39,11 @@ const resolvers = {
     books: () => books,
   },
 };
+
+
+const server = new ApolloServer({ typeDefs, resolvers });
+
+// The `listen` method launches a web server.
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
