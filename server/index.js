@@ -1,12 +1,10 @@
 const { ApolloServer, gql } = require('apollo-server');
+const {mainCards,animals} = require('./db')
 
 const typeDefs = gql`
 type MainCard {
   title:String
   image:String
-  # age:Float
-  # number:Int
-  # boolean: Boolean
 }  
 
 type Animal {
@@ -24,29 +22,7 @@ type Query {
     mainCards: [MainCard]
     animal: [Animal!]!
   }
-
-
-
-
 `;
-
-//maincard content
-const mainCards = [
-  {
-    title: 'Best of the Evening',
-    image: 'lion',
-  },
-  {
-    title: 'loking for my dream',
-    image: 'penguin',
-  },
-  {
-    title: 'Best Behaved',
-    image: 'cat',
-  },
-];
-
-
 
 
 const resolvers = {
