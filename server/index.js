@@ -20,7 +20,7 @@ type Animal {
   
 type Query {
     mainCards: [MainCard]
-    animal: [Animal!]!
+    animals: [Animal!]!
   }
 `;
 
@@ -28,6 +28,7 @@ type Query {
 const resolvers = {
   Query: {
     mainCards: () => mainCards,
+    animals: () => animals,
   },
 };
 
