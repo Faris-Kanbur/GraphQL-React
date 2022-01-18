@@ -17,6 +17,7 @@ type Animal {
   slug:String!
   stock: Int!
   onSale:Boolean
+  category: Category
     
 }
 
@@ -25,6 +26,7 @@ type Category {
   image: String!
   category:String!
   slug:String!
+  animals: [Animal!]!
 }
   
 type Query {
@@ -52,10 +54,24 @@ const resolvers = {
     category: (parent,args,ctx) => {
       let category = categories.find((category) => {
         return category.slug === args.slug
-      })
+      }) 
       return category
     },
   },
+  Category : {
+    animals: (parent, args, ctx) => {
+      return animals.filter(animal => {
+        return animal.category === parent.id
+      })
+    }
+  },
+  Animal : {
+    category: (parent, args, ctx) => {
+      return categories.find(category => {
+        return category.id === parent.category
+      })
+    }
+  }
 };
 
 
