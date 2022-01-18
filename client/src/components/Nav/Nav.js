@@ -10,7 +10,7 @@ export default function Nav() {
             <div className="nav-container">
                 <h4 className="header">animazon<span>.com</span></h4>
                 <div className="nav-delivery-info-container">
-                    <p>Deliver to Laith</p>
+                    <p>Deliver to Faris Kanbur</p>
                     <h2>432 Park Avenue</h2>
                 </div>
                 <div className="nav-input-container">
@@ -23,7 +23,7 @@ export default function Nav() {
                     </button>
                 </div>
                 <div className="nav-delivery-info-container">
-                    <p>Hello, Laith</p>
+                    <p>Hello, Faris</p>
                     <h2>Account & Lists</h2>
                 </div>
                 <div className="nav-delivery-info-container">
