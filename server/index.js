@@ -8,11 +8,13 @@ type MainCard {
 }  
 
 type Animal {
+  id: ID!
   image: String!
   title:String!
   rating: Float
   price:String!
   description: [String!]!
+  slug:String!
   stock: Int!
   onSale:Boolean
     
