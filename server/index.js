@@ -23,6 +23,7 @@ type Animal {
 type Query {
     mainCards: [MainCard]
     animals: [Animal!]!
+    animal(slug: String):Animal!
   }
 `;
 
@@ -31,6 +32,12 @@ const resolvers = {
   Query: {
     mainCards: () => mainCards,
     animals: () => animals,
+    animal: (parent,args,ctx) => {
+      let animal = animals.find((animal) => {
+        return animal.slug === args.slug
+      })
+      return animal
+    },
   },
 };
 
