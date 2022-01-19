@@ -4,6 +4,7 @@ const typeDefs = require('./schema')
 const Query = require('./resolvers/Query')
 const Animal = require('./resolvers/Animal')
 const Category = require('./resolvers/Category')
+const Mutation = require('./resolvers/Mutation')
 
  
 //typeDefs and resolvers
@@ -12,7 +13,13 @@ const server = new ApolloServer({
   resolvers:{
     Query,
     Animal,
-    Category
+    Category,
+    Mutation
+  },
+  context:{
+    mainCards,
+    animals,
+    categories
   } 
 });
 
