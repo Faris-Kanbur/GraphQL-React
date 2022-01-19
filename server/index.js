@@ -1,42 +1,6 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
 const {mainCards, animals, categories} = require('./db')
-
-const typeDefs = gql`
-type MainCard {
-  title:String
-  image:String
-}  
-
-type Animal {
-  id: ID!
-  image: String!
-  title:String!
-  rating: Float
-  price:String!
-  description: [String!]!
-  slug:String!
-  stock: Int!
-  onSale:Boolean
-  category: Category
-    
-}
-
-type Category {
-  id: ID!
-  image: String!
-  category:String!
-  slug:String!
-  animals: [Animal!]!
-}
-  
-type Query {
-    mainCards: [MainCard]
-    animals: [Animal!]!
-    animal(slug: String):Animal!
-    categories:[Category!]!
-    category(slug:String):Category!
-  }
-`;
+const typeDefs = require('./schema')
 
 
 const resolvers = {
