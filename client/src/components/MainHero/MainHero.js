@@ -4,16 +4,18 @@ import animals from "../../assets/images"
 import {Container} from "reactstrap"
 import { useQuery, gql } from "@apollo/client"
 
-function MainHero() {
-
-    const { loading, error,data } = useQuery( gql`
-        {
+const FETCH_MAIN_CARDS = gql`
+{
             mainCards {
                 image
                 title
             }
         }
-    `)
+`
+
+function MainHero() {
+
+    const { loading, error,data } = useQuery(FETCH_MAIN_CARDS)
 
     if(loading) return <div>Loading...</div>
     if(error) return <div>Some error happen</div>
@@ -30,7 +32,7 @@ function MainHero() {
                             return (
                                 <div className="card">
                                     <h3>{card.title}</h3>
-                                    <img src={animals[card.img]} style={{width: "100%"}}/>
+                                    <img src={animals[card.image]} style={{width: "100%"}}/>
                                 </div>
                             )
                         })}
